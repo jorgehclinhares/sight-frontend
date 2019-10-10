@@ -1,0 +1,20 @@
+<section class="container-background" fxLayoutAlign="center center">
+  <div class="container-login" fxLayoutAlign="center center">
+    <div class="content" fxLayout="column" fxLayoutGap="16px">
+      <h1>Sight | Login</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)" fxLayout="column">
+        <mat-form-field>
+          <input matInput type="text" formControlName="email" placeholder="E-mail">
+          <mat-error>E-mail não informado ou inválido.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" formControlName="password" placeholder="Password">
+          <mat-error>Informe uma senha.</mat-error>
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="end center">
+          <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Entrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
