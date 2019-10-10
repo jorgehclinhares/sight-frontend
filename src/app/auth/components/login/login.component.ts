@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from '../../services/login/login.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LoginService,
+    private authService: AuthService,
     private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
@@ -25,9 +25,9 @@ export class LoginComponent {
 
   async login(value) {
     const { email, password } = value;
-    this.loginService.auth(email, password).then((response) => {
+    this.authService.auth(email, password).then((response) => {
       const { token, user } = response.data.data;
-      this.loginService.registryData(token, user);
+      this.authService.registryData(token, user);
       this.router.navigateByUrl('/dashboard');
     });
   }

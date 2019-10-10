@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
-import { LoginServiceModule } from './login.service.module';
+import { AuthServiceModule } from './auth.service.module';
 import axios from 'axios';
+import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: LoginServiceModule
+  providedIn: AuthServiceModule
 })
-export class LoginService {
+export class AuthService {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   auth(email: string, password: string) {
     return axios.post('auth', { email, password });
@@ -17,6 +20,11 @@ export class LoginService {
     localStorage.clear();
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigateByUrl('/login');
   }
 
 }

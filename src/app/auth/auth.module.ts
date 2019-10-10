@@ -9,7 +9,8 @@ import {
   MatInputModule
 } from '@angular/material';
 
-import { LoginServiceModule } from './services/login/login.service.module';
+import { AuthServiceModule } from './services/auth/auth.service.module';
+import { AuthenticatedGuardModule } from './guards/auth/authenticated.module';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,10 @@ import { LoginServiceModule } from './services/login/login.service.module';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    LoginServiceModule
+    AuthServiceModule,
+    AuthenticatedGuardModule
   ],
   exports: [],
   providers: [],
 })
-export class LoginModule { }
+export class AuthModule { }
