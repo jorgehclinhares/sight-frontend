@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
 import { AuthServiceModule } from './auth.service.module';
-import axios from 'axios';
 import { Router } from '@angular/router';
+import { AxiosRequest } from '../../../shared/classes/axios.class';
 
 @Injectable({
   providedIn: AuthServiceModule
 })
-export class AuthService {
+export class AuthService extends AxiosRequest {
 
   constructor(
     private router: Router
-  ) { }
+  ) {
+    super();
+  }
 
   auth(email: string, password: string) {
-    return axios.post('auth', { email, password });
+    return this.axiosNoAuth.post('auth', { email, password });
   }
 
   registryData(token: string, user: User) {

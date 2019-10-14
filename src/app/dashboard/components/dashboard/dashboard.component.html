@@ -1,0 +1,17 @@
+<section fxLayout="column" fxLayoutGap="16px">
+  <h1>Dashboard</h1>
+  <div fxLayout="row wrap">
+    <div *ngFor="let project of projects" class="container-card" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33"
+      fxFlex.lg="25">
+      <mat-card matRipple>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <span fxFlex>{{ project.name }}</span>
+          <div fxLayout="column" fxLayoutAlign="center center">
+            <span class="count">{{ project.errors }}</span>
+            <span class="label-count">Falhas</span>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</section>

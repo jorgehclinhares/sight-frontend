@@ -1,0 +1,7 @@
+@import '../../../../styles/colors.scss';
+@import '~@angular/material/theming';
+
+.mat-toolbar {
+  background: $darkGrey;
+  @include mat-elevation(6);
+}

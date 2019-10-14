@@ -1,0 +1,24 @@
+@import '../../../../styles/colors.scss';
+
+.container-card {
+  padding: 8px;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  .mat-card {
+    background-color: $darkGrey;
+    cursor: pointer;
+  }
+  .count {
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .label-count {
+    font-size: 11px;
+  }
+  .red {
+    color: red;
+  }
+}

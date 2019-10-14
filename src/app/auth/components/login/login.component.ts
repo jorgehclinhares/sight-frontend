@@ -28,7 +28,7 @@ export class LoginComponent {
     this.authService.auth(email, password).then((response) => {
       const { token, user } = response.data.data;
       this.authService.registryData(token, user);
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/app/dashboard');
     });
   }
 
